@@ -67,3 +67,19 @@ export async function updateTodo(id: number, completed: boolean): Promise<Todo> 
     throw error;
   }
 }
+
+// Function to delete a todo
+export async function deleteTodo(id: number): Promise<void> {
+  try {
+    const response = await fetch(`${API_BASE_URL}/todos/${id}`, {
+      method: 'DELETE',
+    });
+    
+    if (!response.ok) {
+      throw new Error('Failed to delete todo');
+    }
+  } catch (error) {
+    console.error('Error deleting todo:', error);
+    throw error;
+  }
+}
