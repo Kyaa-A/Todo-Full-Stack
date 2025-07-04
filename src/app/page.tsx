@@ -27,7 +27,7 @@ export default function Home() {
       setError(null);
       const fetchedTodos = await getTodos();
       setTodos(fetchedTodos);
-    } catch (err) {
+    } catch {
       setError('Unable to connect to your workspace. Please check your connection.');
     } finally {
       setIsLoading(false);
@@ -39,9 +39,9 @@ export default function Home() {
       const newTodo = await createTodo(title);
       setTodos(prev => [newTodo, ...prev]);
       setError(null);
-    } catch (err) {
+    } catch (_err) {
       setError('Failed to add task. Please try again.');
-      throw err;
+      throw _err;
     }
   };
 
@@ -54,7 +54,7 @@ export default function Home() {
         )
       );
       setError(null);
-    } catch (err) {
+    } catch {
       setError('Failed to update task. Please try again.');
     }
   };
@@ -64,7 +64,7 @@ export default function Home() {
       await deleteTodo(id);
       setTodos(prev => prev.filter(todo => todo.id !== id));
       setError(null);
-    } catch (err) {
+    } catch {
       setError('Failed to delete task. Please try again.');
     }
   };

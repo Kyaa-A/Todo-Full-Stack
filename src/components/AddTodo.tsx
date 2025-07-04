@@ -19,8 +19,9 @@ export default function AddTodo({ onAddTodo }: AddTodoProps) {
     try {
       await onAddTodo(title.trim());
       setTitle('');
-    } catch (error) {
-      console.error('Failed to add todo:', error);
+    } catch {
+      // Let parent component handle the error
+      console.error('Failed to add todo:');
     }
     setIsLoading(false);
   };
