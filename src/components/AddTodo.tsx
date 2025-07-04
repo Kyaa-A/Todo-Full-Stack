@@ -66,7 +66,7 @@ export default function AddTodo({ onAddTodo }: AddTodoProps) {
           
           {/* SAAS Helper Text */}
           <p className="mt-3 text-sm text-gray-500">
-            Press Enter or click "Add Task" to create a new item
+            Press Enter or click &quot;Add Task&quot; to create a new item
           </p>
         </div>
       </form>
